@@ -100,7 +100,7 @@ ngOnInit() {
     this.listProviders = [];
     this.catalogService.findCatalogByType(1).subscribe(response => {
       response.forEach(element => {
-        this.listProviders.push({ label: element.nombre + ' - ' + element.catalogoId, value: element });
+        this.listProviders.push({ label: element.nombre, value: element });
       });
     });
   }
@@ -109,7 +109,7 @@ ngOnInit() {
     this.listProducts =[];
     this.catalogService.findAllCatalogProducts().subscribe(response => {
         response.forEach(element => {
-          this.listProducts.push({label: element.nombre + ' - '+ element.productoId, value: element});
+          this.listProducts.push({label: element.nombre , value: element});
         });
     });
   }

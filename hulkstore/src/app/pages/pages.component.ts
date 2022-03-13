@@ -13,6 +13,7 @@ export class PagesComponent implements OnInit {
 
   constructor(public userModel: UserModel) { }
 
+  // tslint:disable-next-line: typedef
   ngOnInit() {
      this.items = [
       { label: 'Usuarios', icon: 'pi pi-users', routerLink: ['/users'] },

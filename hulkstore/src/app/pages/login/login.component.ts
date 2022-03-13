@@ -20,10 +20,12 @@ export class LoginComponent implements OnInit {
   constructor(public router: Router, public userService: ConfigService, public messageServices: MessageService,
               public userModel: UserModel ) { }
 
+  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.userModel.loginOk = false;
   }
 
+  // tslint:disable-next-line: typedef
   ingresar(user: any) {
     this.userService.login(user).subscribe((response: any) => {
       this.result = response;

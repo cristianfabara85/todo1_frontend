@@ -79,9 +79,10 @@ ngOnInit() {
   cloneCar(c: any): any {
     const user = {};
     // tslint:disable-next-line:forin
-    this.product=c;
+    this.product = c;
+    // tslint:disable-next-line: forin
     for (const prop in c) {
-        user[prop] = c[prop];
+      user[prop] = c[prop];
     }
     return this.product;
   }

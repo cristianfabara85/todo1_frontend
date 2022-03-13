@@ -121,17 +121,17 @@ ngOnInit() {
     this.listClients = [];
     this.catalogService.findCatalogByType(2).subscribe(response => {
       response.forEach(element => {
-        this.listClients.push({ label: element.nombre + ' - ' + element.catalogoId, value: element });
+        this.listClients.push({ label: element.nombre , value: element });
       });
     });
   }
 
-  getCatalogoProducts() {
-    this.listProducts =[];
+  getCatalogoProducts(): void {
+    this.listProducts = [];
     this.catalogService.findAllCatalogProducts().subscribe(response => {
-        response.forEach(element => {
-          this.listProducts.push({label: element.nombre + ' - '+ element.productoId, value: element});
-        });
+      response.forEach(element => {
+        this.listProducts.push({ label: element.nombre , value: element });
+      });
     });
   }
 
