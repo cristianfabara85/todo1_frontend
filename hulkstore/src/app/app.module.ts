@@ -12,7 +12,7 @@ import { GenericService } from './services/interface/generic.services';
 import { ProductService } from './services/interface/product.services';
 import { ConfigService } from './services/interface/services.test';
 import { StockService } from './services/interface/stock.services';
-import { MessageService, PanelModule } from 'primeng';
+import { MessageModule, MessageService, PanelModule } from 'primeng';
 import { SaleService } from './services/interface/sale.services';
 import { PurchaseService } from './services/interface/purchase.services';
 import { CatalogService } from './services/interface/catalog.services';
@@ -29,7 +29,8 @@ import { CatalogService } from './services/interface/catalog.services';
     HttpClientModule,
     APP_ROUTES,
     ServiceModule,
-    PanelModule
+    PanelModule,
+    MessageModule
   ],
   providers: [GenericService, ConfigService, ProductService, StockService, PurchaseService, MessageService, SaleService, CatalogService],
   bootstrap: [AppComponent]

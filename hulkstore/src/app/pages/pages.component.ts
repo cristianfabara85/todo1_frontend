@@ -14,10 +14,10 @@ export class PagesComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Productos', icon: 'pi pi-shopping-cart', routerLink: ['/product'] },
-      { label: 'Compras', icon: 'pi pi-file', routerLink: ['/purchases'] },
-      { label: 'Ventas', icon: 'pi pi-file', routerLink: ['/sales'] },
-      { label: 'Stock', icon: 'pi pi-pencil', routerLink: ['/stock'] }
+      { label: 'Productos', icon: 'pi pi-pencil', routerLink: ['/product'] },
+      { label: 'Adquisiciones', icon: 'pi pi-pencil', routerLink: ['/purchases'] },
+      { label: 'Ventas', icon: 'pi pi-shopping-cart', routerLink: ['/sales'] },
+      { label: 'Ver stock', icon: 'pi pi-eye', routerLink: ['/stock'] }
     ];
   }
 

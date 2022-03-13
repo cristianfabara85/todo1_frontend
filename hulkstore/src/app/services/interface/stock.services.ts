@@ -15,4 +15,8 @@ export class StockService {
     return  this._genericService.genericCallServices('get', `${this.url.CONTEXT}${this.url.CONTEXT_STOCK}${this.url.STOCK.FIND_ALL}`, null, null);
   }
 
+  public findAvailableStockByProductId(productId: any): Observable<any> {
+    return  this._genericService.genericCallServices('get', `${this.url.CONTEXT}${this.url.CONTEXT_STOCK}${this.url.STOCK.AVAILABLE_STOCK_BY_PRODUCT}/${productId}`, null, null);
+  }
+
 }

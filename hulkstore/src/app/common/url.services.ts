@@ -13,6 +13,7 @@ export const URL = {
     },
     STOCK: {
         FIND_ALL : '/findall',
+        AVAILABLE_STOCK_BY_PRODUCT : '/findAvailableStockByProductId'
     },
     PURCHASES: {
         SAVE : '/save',

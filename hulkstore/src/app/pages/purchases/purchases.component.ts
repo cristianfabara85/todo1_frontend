@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { CatalogService } from 'src/app/services/interface/catalog.services';
-import { ProductService } from 'src/app/services/interface/product.services';
+import { StockService } from 'src/app/services/interface/stock.services';
 import { PurchaseService } from '../../services/interface/purchase.services';
 
 @Component({
@@ -10,7 +11,8 @@ import { PurchaseService } from '../../services/interface/purchase.services';
 })
 export class PurchasesComponent implements OnInit {
 
-  constructor( public purchaseService: PurchaseService, private productService: ProductService, private catalogService: CatalogService) {
+  constructor(public purchaseService: PurchaseService, private stockService: StockService, private catalogService: CatalogService,
+              private messageService: MessageService) {
   }
 
   displayDialog: boolean;
@@ -23,6 +25,7 @@ export class PurchasesComponent implements OnInit {
     cols: any[];
     listProviders: any[];
     listProducts: any[];
+    msgs: any[];
 // tslint:disable-next-line:typedef
 ngOnInit() {
 
@@ -30,7 +33,8 @@ ngOnInit() {
   this.getCatalogoProducts();
   this.displayDialog = false;
   this.cols = [
-      { field: 'productoId', header: 'Código Producto' },
+      { field: 'codigo', header: 'Código Producto' },
+      { field: 'nombre', header: 'Nombre Producto' },
       { field: 'proveedor', header: 'Proveedor' },
       { field: 'cantidad', header: 'Cantidad' },
       { field: 'precioUnitario', header: 'Precio' },
@@ -56,6 +60,7 @@ ngOnInit() {
       this.purchase.precioTotal = Number((this.purchase.cantidad * this.purchase.precioUnitario).toFixed(2));
 
       this.purchaseService.savePurchase(this.purchase).subscribe(response => {
+        this.messageService.addAll([{ severity: 'success', summary: 'Compra realizada correctamente' }]);
         this.getPurchase();
         this.purchase = null;
         this.displayDialog = false;
@@ -83,6 +88,10 @@ ngOnInit() {
   getPurchase() {
     this.purchaseService.findAllPurchases().subscribe(response => {
         this.listPurchase = response;
+        this.listPurchase?.forEach(element => {
+          element.nombre = this.listProducts.filter(x => x.value.productoId === element.productoId)[0].value.nombre;
+          element.codigo = this.listProducts.filter(x => x.value.productoId === element.productoId)[0].value.codigo;
+        });
       });
   }
 

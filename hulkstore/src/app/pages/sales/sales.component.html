@@ -1,5 +1,6 @@
 <div class="card">
-    <p-table [columns]="cols" [value]="listSales"  [paginator]="true" [rows]="15">
+    <p-messages [(value)]="msgs" *ngIf="isGlobal===true"></p-messages>
+    <p-table [columns]="cols" [value]="listSales"  [paginator]="true" [rows]="11">
     <ng-template pTemplate="caption">
         Ventas
     </ng-template>
@@ -9,7 +10,6 @@
                 {{col.header}}
                 <p-sortIcon [field]="col.field"></p-sortIcon>
             </th>
-            <th style="width: 100px;"></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -27,8 +27,7 @@
 </p-table>
 </div>
 
-
-<p-dialog header="Datos Usuario" [(visible)]="displayDialog" [focusOnShow]="false" 
+<p-dialog header="Datos de Venta" [(visible)]="displayDialog" [focusOnShow]="false" 
             [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '300px'}">
     <div class="p-grid ui-fluid" *ngIf="sale">
         <div class="p-col-4">
@@ -65,7 +64,8 @@
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
             
-            <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="save()" label="Guardar"></button>
         </div>
     </p-footer>
+    <p-messages [(value)]="msgs" *ngIf="isGlobal===false"></p-messages>
 </p-dialog>

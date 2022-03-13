@@ -67,7 +67,7 @@ ngOnInit() {
       this.listStock?.forEach(element => {
         element.nombre = this.listProducts.filter(x => x.value.productoId === element.productoId)[0].value.nombre;
         element.codigo = this.listProducts.filter(x => x.value.productoId === element.productoId)[0].value.codigo;
-      })
+      });
     });
   }
 

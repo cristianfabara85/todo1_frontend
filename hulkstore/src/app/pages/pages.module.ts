@@ -21,7 +21,7 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
-import { DropdownModule, MenuModule, PanelModule } from 'primeng';
+import { DropdownModule, MenuModule, MessageService, PanelModule } from 'primeng';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { SalesComponent } from './sales/sales.component';
@@ -56,6 +56,9 @@ import { PurchasesComponent } from './purchases/purchases.component';
         MessagesModule,
         MessageModule,
         PanelModule
+    ],
+    providers:[
+        MessageService
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
