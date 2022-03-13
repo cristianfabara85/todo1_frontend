@@ -26,4 +26,9 @@ export class ConfigService {
   public deleteUser(obj: any): Observable<any> {
     return  this._genericService.genericCallServices('delete', `${this.url}/users/${obj.iduser}`, null , null);
   }
+
+  public login(obj: any): Observable<any> {
+    return  this._genericService.genericCallServices('post', `${this.url.CONTEXT}${this.url.CONTEXT_USER}${this.url.USERS.LOGIN}`, obj, null);
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { UserModel } from '../services/models/user.model';
 
 @Component({
   selector: 'app-pages',
@@ -10,15 +11,16 @@ export class PagesComponent implements OnInit {
 
   items: MenuItem[];
 
-  constructor() { }
+  constructor(public userModel: UserModel) { }
 
   ngOnInit() {
-    this.items = [
-      { label: 'Usuarios', icon: 'pi pi-pencil', routerLink: ['/users'] },
+     this.items = [
+      { label: 'Usuarios', icon: 'pi pi-users', routerLink: ['/users'] },
       { label: 'Productos', icon: 'pi pi-pencil', routerLink: ['/product'] },
       { label: 'Adquisiciones', icon: 'pi pi-pencil', routerLink: ['/purchases'] },
-      { label: 'Ventas', icon: 'pi pi-shopping-cart', routerLink: ['/sales'] },
-      { label: 'Ver stock', icon: 'pi pi-eye', routerLink: ['/stock'] }
+      { label: 'Ventas', icon: 'pi pi-pencil', routerLink: ['/sales'] },
+      { label: 'Ver stock', icon: 'pi pi-eye', routerLink: ['/stock'] },
+      { label: 'Cerrar sesión', icon: 'pi pi-sign-out', routerLink: ['/login'] }
     ];
   }
 

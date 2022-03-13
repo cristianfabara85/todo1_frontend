@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 import { PagesComponent } from './pages.component';
 import { ProductsComponent } from './products/products.component';
 import { PurchasesComponent } from './purchases/purchases.component';
@@ -17,7 +18,8 @@ const pagesRoutes: Routes = [
             { path: 'product', component: ProductsComponent},
             { path: 'purchases', component: PurchasesComponent},
             { path: 'sales', component: SalesComponent},
-            { path: '', redirectTo: '/product', pathMatch: 'full' }
+            { path: 'login', component: LoginComponent},
+            { path: '', redirectTo: '/login', pathMatch: 'full' }
         ]
     }
 ];

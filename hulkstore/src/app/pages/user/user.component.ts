@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from '../../services/interface/services.test';
+import { ConfigService } from 'src/app/services/interface/config.services';
+
 
 @Component({
   selector: 'app-user',

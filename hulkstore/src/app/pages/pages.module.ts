@@ -26,6 +26,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { SalesComponent } from './sales/sales.component';
 import { PurchasesComponent } from './purchases/purchases.component';
+import { LoginComponent } from './login/login.component';
+import { UserModel } from '../services/models/user.model';
 
 @NgModule({
     declarations: [
@@ -34,14 +36,16 @@ import { PurchasesComponent } from './purchases/purchases.component';
         ProductsComponent,
         StockComponent,
         PurchasesComponent,
-        SalesComponent
+        SalesComponent,
+        LoginComponent
     ],
     exports: [
         UserComponent,
         ProductsComponent,
         StockComponent,
         PurchasesComponent,
-        SalesComponent
+        SalesComponent,
+        LoginComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -58,7 +62,8 @@ import { PurchasesComponent } from './purchases/purchases.component';
         PanelModule
     ],
     providers:[
-        MessageService
+        MessageService,
+        UserModel
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

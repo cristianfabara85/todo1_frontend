@@ -1,10 +1,23 @@
-export class User {
+import { Injectable } from '@angular/core';
 
-      username: string;
-      password: string;
+@Injectable()
+export class UserModel {
 
-    constructor() {
-        this.username = null;
-        this.password = null;
+    private _loginOk: any;
+    private _tipo: any;
+
+    public get loginOk() {
+        return this._loginOk;
     }
+    public set loginOk(loginOk) {
+        this._loginOk = loginOk;
+    }
+    public get tipo() {
+        return this._tipo;
+    }
+    public set tipo(tipo) {
+        this._tipo = tipo;
+    }
+
 }
+

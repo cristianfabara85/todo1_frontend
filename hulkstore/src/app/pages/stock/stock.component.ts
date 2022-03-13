@@ -13,12 +13,12 @@ import { WebElementCondition } from 'selenium-webdriver';
 export class StockComponent implements OnInit {
 
   constructor( public stockService: StockService, private productService: ProductService,
-    private messageService: MessageService) {
+               private messageService: MessageService) {
   }
 
   displayDialog: boolean;
 
-    stock:StockModel = new StockModel();
+  stock: StockModel = new StockModel();
     selectedProduct: any;
     newStock: boolean;
     listStock: any[];

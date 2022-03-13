@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceModule } from './services/service.module';
 import { GenericService } from './services/interface/generic.services';
 import { ProductService } from './services/interface/product.services';
-import { ConfigService } from './services/interface/services.test';
+import { ConfigService } from './services/interface/config.services';
 import { StockService } from './services/interface/stock.services';
 import { MessageModule, MessageService, PanelModule } from 'primeng';
 import { SaleService } from './services/interface/sale.services';
