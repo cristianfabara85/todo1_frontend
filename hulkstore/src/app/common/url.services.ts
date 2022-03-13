@@ -5,6 +5,7 @@ export const URL = {
     CONTEXT_PURCHASE: '/purchase',
     CONTEXT_SALES: '/sale',
     CONTEXT_CATALOG: '/catalog',
+    CONTEXT_USER: '/user',
     PRODUCTS: {
         SAVE : '/save',
         FIND_ALL : '/findall',
@@ -31,5 +32,12 @@ export const URL = {
         GET_CATALOG_ALL_PRODUCT : '/catalogAllProduct',
         GET_CATALOG_All : '/findAllCatalogs',
         GET_CATALOG_BY_TYPE : '/findCatalogsByType'
-    }
+    },
+    USERS: {
+        SAVE : '/save',
+        FIND_ALL : '/findall',
+        LOGIN : '/login',
+        DELETE : '/delete',
+        GET_BY_ID : '/getbyid'
+    },
   };

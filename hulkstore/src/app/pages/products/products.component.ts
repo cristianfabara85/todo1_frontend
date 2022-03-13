@@ -44,10 +44,8 @@ ngOnInit() {
    const listUsers = [...this.listProducts];
 
    if (this.newUser) {
-    //listUsers.push(this.product);
     this.productService.saveProducts(this.product).subscribe(response => {
       this.getProducts();
-      //this.listUsers = response;
       this.product = null;
       this.displayDialog = false;
      });
@@ -56,16 +54,10 @@ ngOnInit() {
       listUsers[this.listProducts.indexOf(this.selectedProduct)] = this.product;
       this.productService.saveProducts(this.product).subscribe(response => {
         this.getProducts();
-        //this.listUsers = response;
         this.product = null;
         this.displayDialog = false;
        });
-      /* this.productService.updateUser(this.user).subscribe(response => {
-        this.getUsers();
-        //this.listUsers = response;
-        this.user = null;
-        this.displayDialog = false;
-       }); */
+
     }
   }
 
@@ -102,19 +94,6 @@ ngOnInit() {
       });
   }
 
-  // tslint:disable-next-line:typedef
-  getCatalogoIndustria() {
-   /*  this.industria = [
-      {label: 'Seleccione', value: null}
-    ];
-    let data: Catalogo[] = [];
-    this.configService.getCatalogoIndustria().subscribe(response => {
-        data = response.data;
-        data.forEach(element => {
-          this.industria.push({label: element.text, value: element});
-        });
-    }); */
-  }
 }
 
 

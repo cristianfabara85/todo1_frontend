@@ -20,7 +20,7 @@
     </ng-template>
     <ng-template pTemplate="summary" let-rowData>
         <div style="text-align:left">
-            <button type="button" pButton icon="pi pi-plus" (click)="showDialogToAdd()" label="Add"></button>
+            <button type="button" pButton icon="pi pi-plus" (click)="showDialogToAdd()" label="Nuevo Usuario"></button>
         </div>
     </ng-template>
 </p-table>
@@ -29,33 +29,38 @@
             [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '300px'}">
     <div class="p-grid ui-fluid" *ngIf="user">
         <div class="p-col-4">
-            <label for="vin">DNI: </label>
-        </div>
-        <div class="p-col-8">
-            <input pInputText id="dni" [(ngModel)]="user.dni" autofocus />
-        </div>
-        <div class="p-col-4">
             <label for="year">Nombre: </label>
         </div>
         <div class="p-col-8">
-            <input pInputText id="username" [(ngModel)]="user.username" />
+            <input pInputText id="username" [(ngModel)]="user.nombre" />
         </div>
         <div class="p-col-4">
-            <label for="brand">Apellido: </label>
+            <label for="brand">Correo: </label>
         </div>
         <div class="p-col-8">
-            <input pInputText id="lastname" [(ngModel)]="user.lastname" />
+            <input pInputText id="correo" [(ngModel)]="user.correo" />
         </div>
         <div class="p-col-4">
-            <label for="color">Correo: </label>
+            <label for="color">UserName: </label>
         </div>
         <div class="p-col-8">
-            <input pInputText id="mail" [(ngModel)]="user.mail" />
+            <input pInputText id="username" [(ngModel)]="user.usuario" />
+        </div>
+        <div class="p-col-4">
+            <label for="color">Password: </label>
+        </div>
+        <div class="p-col-8">
+            <input pInputText type="password" id="Password" [(ngModel)]="user.password" />
+        </div>
+        <div class="p-col-4">
+            <label for="color">Tipo: </label>
+        </div>
+        <div class="p-col-8">
+            <p-dropdown id="tipo" [options]="typeUsers" [(ngModel)]="selectType" placeholder="Seleccione" appendTo="body"></p-dropdown>
         </div>
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="pi pi-times" (click)="delete()" label="Delete"></button>
             <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
         </div>
     </p-footer>

@@ -14,8 +14,10 @@ export class UserComponent implements OnInit {
   displayDialog: boolean;
 
     user: any = {};
+    selectType: any = {};
     selectedCar: any;
     newUser: boolean;
+    typeUsers: any[];
     listUsers: any[];
     cols: any[];
 
@@ -24,18 +26,20 @@ ngOnInit() {
 
   this.displayDialog = false;
   this.cols = [
-      { field: 'dni', header: 'DNI' },
-      { field: 'username', header: 'Nombre' },
-      { field: 'lastname', header: 'Apellido' },
-      { field: 'mail', header: 'correo' }
+      { field: 'nombre', header: 'Nombre' },
+      { field: 'usuario', header: 'usuario' },
+      { field: 'correo', header: 'Correo' },
+      { field: 'tipo', header: 'Tipo' }
   ];
 
-  this.listUsers = [
+  this.typeUsers = [
     {
-      dni: '1721117917',
-      username: 'Stalin',
-      lastname: 'Ladino',
-      mail: 'eladino@gmail.com'
+      label: 'Interno',
+      value: 1
+    },
+    {
+      label: 'Externo',
+      value: 2
     }
   ];
 
@@ -51,25 +55,22 @@ ngOnInit() {
 
   // tslint:disable-next-line:typedef
   save() {
-   const listUsers = [...this.listUsers];
-
-   if (this.newUser) {
-    listUsers.push(this.user);
-    this.configService.saveUser(this.user).subscribe(response => {
-      this.getUsers();
-      //this.listUsers = response;
-      this.user = null;
-      this.displayDialog = false;
-     });
-   }
-    else {
-      listUsers[this.listUsers.indexOf(this.selectedCar)] = this.user;
-      this.configService.updateUser(this.user).subscribe(response => {
+    const listUsers = [...this.listUsers];
+    if (this.newUser) {
+      this.user.tipo = this.selectType;
+      this.configService.saveUser(this.user).subscribe(response => {
         this.getUsers();
-        //this.listUsers = response;
         this.user = null;
         this.displayDialog = false;
-       });
+      });
+    }
+    else {
+      listUsers[this.listUsers.indexOf(this.selectedCar)] = this.user;
+      this.configService.saveUser(this.user).subscribe(response => {
+        this.getUsers();
+        this.user = null;
+        this.displayDialog = false;
+      });
     }
   }
 
@@ -80,10 +81,7 @@ ngOnInit() {
      this.user = null;
      this.displayDialog = false;
    });
-    /* const index = this.listUsers.indexOf(this.selectedCar);
-    this.listUsers = this.listUsers.filter((val, i) => i !== index);
-    this.user = null;
-    this.displayDialog = false; */
+
   }
 
   // tslint:disable-next-line:typedef
@@ -104,24 +102,11 @@ ngOnInit() {
 
   // tslint:disable-next-line:typedef
   getUsers() {
-    this.configService.getUser().subscribe(response => {
+    this.configService.findUser().subscribe(response => {
         this.listUsers = response;
       });
   }
 
-  // tslint:disable-next-line:typedef
-  getCatalogoIndustria() {
-   /*  this.industria = [
-      {label: 'Seleccione', value: null}
-    ];
-    let data: Catalogo[] = [];
-    this.configService.getCatalogoIndustria().subscribe(response => {
-        data = response.data;
-        data.forEach(element => {
-          this.industria.push({label: element.text, value: element});
-        });
-    }); */
-  }
 }
 
 
