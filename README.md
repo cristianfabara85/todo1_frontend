@@ -5,7 +5,7 @@ Pasos para levantar el front end:
 Instalar librerias NPM "npm install"
 Levantar frontEnd con "npm start"
 
-Para ingresar al sistema actualmente se encuentran creados los siguientes usuarios:
+Para ingresar al sistema actualmente se encuentran creados los siguientes usuarios con sus respectivos password encriptados:
 
 user: cristianfabara password:123456
 user: vsantos password:123456
